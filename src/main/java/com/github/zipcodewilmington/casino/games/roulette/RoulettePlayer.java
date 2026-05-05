@@ -27,22 +27,45 @@ public class RoulettePlayer implements PlayerInterface {
         double bet = scanner.nextDouble();
 
         if (!casinoAccount.withdraw(bet)) {
-            return "Invalid bet or not enough balance.";
+            return "Invalid bet or insufficient balance.";
         }
 
-        System.out.print("Pick a number between 0 and 36: ");
-        int guess = scanner.nextInt();
+        // User picks number
+        System.out.print("Pick a number (0–36): ");
+        int chosenNumber = scanner.nextInt();
 
+        // User picks color
+        System.out.print("Pick color (red/black): ");
+        String chosenColor = scanner.next().toLowerCase();
+
+        // Spin roulette
         int winningNumber = (int) (Math.random() * 37);
 
-        System.out.println("Winning number: " + winningNumber);
-
-        if (guess == winningNumber) {
-            double winnings = bet * 36;
-            casinoAccount.deposit(winnings);
-            return "You won $" + winnings;
+        // Determine color
+        String winningColor;
+        if (winningNumber == 0) {
+            winningColor = "green";
+        } else if (winningNumber % 2 == 0) {
+            winningColor = "black";
+        } else {
+            winningColor = "red";
         }
 
-        return "You lost $" + bet;
+        System.out.println("🎯 Result: " + winningNumber + " " + winningColor);
+
+        // Check win
+        if (chosenNumber == winningNumber) {
+            double winnings = bet * 36;
+            casinoAccount.deposit(winnings);
+            return "🔥 JACKPOT! You won $" + winnings;
+        }
+
+        if (chosenColor.equals(winningColor)) {
+            double winnings = bet * 2;
+            casinoAccount.deposit(winnings);
+            return "✅ Color match! You won $" + winnings;
+        }
+
+        return "❌ You lost $" + bet;
     }
 }
