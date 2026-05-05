@@ -11,6 +11,11 @@ public class CasinoAccount {
     private String playerName;
     private double balance;
 
+    public CasinoAccount() {
+        this.playerName = "Guest";
+        this.balance = 0.0;
+    }
+
     public CasinoAccount(String playerName, double startingBalance) {
         this.playerName = playerName;
         this.balance = startingBalance;
