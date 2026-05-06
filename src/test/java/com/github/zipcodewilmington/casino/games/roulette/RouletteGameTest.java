@@ -14,12 +14,13 @@ public class RouletteGameTest {
     private RoulettePlayer player;
     private RouletteGame game;
 
-    @BeforeEach
+   @BeforeEach
     public void setUp() {
         // given
         account = new CasinoAccount("TestPlayer", 300.0);
         player  = new RoulettePlayer(account);
-        game    = new RouletteGame();
+        game    = new RouletteGame();   // no arguments
+        game.add(player);               // add player separately
     }
 
     @Test

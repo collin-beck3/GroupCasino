@@ -2,6 +2,10 @@ package com.github.zipcodewilmington.casino.games.dice;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
+
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -18,8 +22,9 @@ public class DiceTest {
     public void setUp() {
         // given
         account = new CasinoAccount("TestPlayer", 200.0);
-        player = new DicePlayer(account);
-        game = new DiceGame(player);
+        player  = new DicePlayer(account);
+        game    = new DiceGame();       // no arguments
+        game.add(player);               // add player separately
     }
 
     @Test
@@ -30,38 +35,39 @@ public class DiceTest {
     @Test
     public void testStartGame() {
         // when
-        game.startGame();
+        game.add(player);
         // then
-        assertNotNull(game.getPlayer());
-    }
-    
-    @Test
-    public void testEndGameNullsOutPlayer() {
-        // given
-        game.startGame();
-        // when
-        game.endGame();
-        // then
-        assertNull(game.getPlayer());
+        assertFalse(game.getPlayers().isEmpty());
     }
 
     @Test
-    public void testRollReturnsValidRange() {
+    public void testRemovePlayer() {
         // given
-        game.startGame();
+        game.add(player);
         // when
-        int result = game.roll();
-        // then - 2 dice, range 2 to 12
-        assertTrue(result >= 2 && result <= 12);
+        game.remove(player);
+        // then
+        assertTrue(game.getPlayers().isEmpty());
     }
 
     @Test
-    public void testAccountSurvivesEndGame() {
+    public void testAccountSurvivesRemove() {
         // given
-        game.startGame();
+        game.add(player);
         // when
-        game.endGame();
+        game.remove(player);
         // then
         assertNotNull(account);
     }
+
+    @Test
+    public void testRun() {
+        // given
+        game.add(player);
+        // when
+        game.run();
+        // then
+        assertNotNull(game);
+    }
+
 }
