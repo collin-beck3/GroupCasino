@@ -1,6 +1,6 @@
 package com.github.zipcodewilmington.casino.games.war;
 
-import com.github.zipcodewilmington.casino.CasinoAccount;
+import com.github.zipcodewilmington.CasinoAccount;
 import com.github.zipcodewilmington.casino.PlayerInterface;
 
 public class WarPlayer implements PlayerInterface {

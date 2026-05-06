@@ -11,14 +11,16 @@ public class CasinoAccount {
     private String playerName;
     private double balance;
 
+    // no-arg constructor — creates a guest account
     public CasinoAccount() {
         this.playerName = "Guest";
-        this.balance = 0.0;
+        this.balance    = 0.0;
     }
 
+    // parameterized constructor — creates account with name and starting balance
     public CasinoAccount(String playerName, double startingBalance) {
         this.playerName = playerName;
-        this.balance = startingBalance;
+        this.balance    = startingBalance;
     }
 
     public String getPlayerName() {
@@ -34,11 +36,11 @@ public class CasinoAccount {
             balance += amount;
         }
     }
-    
+
     public boolean withdraw(double amount) {
         if (amount > 0 && amount <= balance) {
             balance -= amount;
-            return true; 
+            return true;
         }
         return false;
     }

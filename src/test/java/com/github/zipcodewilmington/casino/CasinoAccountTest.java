@@ -1,11 +1,11 @@
 package com.github.zipcodewilmington.casino;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class CasinoAccountTest {
 
@@ -98,5 +98,25 @@ public class CasinoAccountTest {
         // given (setUp)
         // then
         assertNotNull(account);
+    }
+
+    @Test
+    public void testNoArgConstructorPlayerName() {
+        // given
+        CasinoAccount guestAccount = new CasinoAccount();
+        // when
+        String name = guestAccount.getPlayerName();
+        // then
+        assertEquals("Guest", name);
+    }
+
+    @Test
+    public void testNoArgConstructorBalance() {
+        // given
+        CasinoAccount guestAccount = new CasinoAccount();
+        // when
+        double balance = guestAccount.getBalance();
+        // then
+        assertEquals(0.0, balance, 0.01);
     }
 }

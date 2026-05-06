@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 
-import com.github.zipcodewilmington.casino.CasinoAccount;
+import com.github.zipcodewilmington.CasinoAccount;
 import com.github.zipcodewilmington.casino.shared.Card;
 
 public class WarPlayerTest {

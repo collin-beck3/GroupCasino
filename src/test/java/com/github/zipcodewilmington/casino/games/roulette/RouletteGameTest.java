@@ -1,27 +1,26 @@
-package com.github.zipcodewilmington.casino.games.dice;
+package com.github.zipcodewilmington.casino.games.roulette;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import com.github.zipcodewilmington.CasinoAccount;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class DiceTest {
+public class RouletteGameTest {
 
     private CasinoAccount account;
-    private DicePlayer player;
-    private DiceGame game;
+    private RoulettePlayer player;
+    private RouletteGame game;
 
-    @BeforeEach
+   @BeforeEach
     public void setUp() {
         // given
-        account = new CasinoAccount("TestPlayer", 200.0);
-        player  = new DicePlayer(account);
-        game    = new DiceGame();       // no arguments
+        account = new CasinoAccount("TestPlayer", 300.0);
+        player  = new RoulettePlayer(account);
+        game    = new RouletteGame();   // no arguments
         game.add(player);               // add player separately
     }
 
@@ -67,5 +66,4 @@ public class DiceTest {
         // then
         assertNotNull(game);
     }
-
 }
