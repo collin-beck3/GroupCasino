@@ -1,5 +1,8 @@
 package com.github.zipcodewilmington.casino.games.war;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.github.zipcodewilmington.casino.GameInterface;
 import com.github.zipcodewilmington.casino.PlayerInterface;
 import com.github.zipcodewilmington.casino.shared.Card;
@@ -27,6 +30,14 @@ public class WarGame implements GameInterface {
     @Override
     public void remove(PlayerInterface oldPlayer) {
         this.player = null;
+    }
+
+    public List<PlayerInterface> getPlayers() {
+        List<PlayerInterface> result = new ArrayList<>();
+        if (player != null) {
+            result.add(player);
+        }
+        return result;
     }
 
     @Override
