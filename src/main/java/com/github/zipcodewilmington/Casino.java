@@ -8,6 +8,9 @@ import com.github.zipcodewilmington.casino.games.numberguess.NumberGuessGame;
 import com.github.zipcodewilmington.casino.games.numberguess.NumberGuessPlayer;
 import com.github.zipcodewilmington.casino.games.slots.SlotsGame;
 import com.github.zipcodewilmington.casino.games.slots.SlotsPlayer;
+import com.github.zipcodewilmington.casino.games.war.WarGame;
+import com.github.zipcodewilmington.casino.games.war.WarPlayer;
+
 
 public class Casino implements Runnable {
 
@@ -52,6 +55,8 @@ public class Casino implements Runnable {
             play(new SlotsGame(), new SlotsPlayer());                               //eventually will implement GameInterface and fix this error
         } else if (gameSelectionInput.equals("NUMBERGUESS")) {
             play(new NumberGuessGame(), new NumberGuessPlayer());                   //same as above ^
+        } else if (gameSelectionInput.equals("WAR")) {
+            play(new WarGame(), new WarPlayer());
         } else {
             String errorMessage = "[ %s ] is an invalid game selection";
             throw new RuntimeException(String.format(errorMessage, gameSelectionInput));
