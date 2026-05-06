@@ -11,11 +11,8 @@ import com.github.zipcodewilmington.utils.IOConsole;
  * Casino War — player draws a card, dealer draws a card, higher rank wins.
  * On a tie, player can surrender (lose half) or go to war (double the bet,
  * burn 6 cards, draw again). Tie-on-war keeps escalating until someone wins.
- *
- * NOTE: bet settlement (account.deposit / account.withdraw) is commented
- * out because Dev E hasn't built CasinoAccount yet. Search for "TODO" to
- * find the spots that need uncommenting later.
  */
+ 
 public class WarGame implements GameInterface {
 
     private PlayerInterface player;
@@ -74,10 +71,10 @@ public class WarGame implements GameInterface {
 
         if (playerRank > dealerRank) {
             console.println("You win " + bet + "!");
-            // TODO: player.getArcadeAccount().deposit(bet);
+            player.getCasinoAccount().deposit(bet);
         } else if (playerRank < dealerRank) {
             console.println("Dealer wins. You lose " + bet + ".");
-            // TODO: player.getArcadeAccount().withdraw(bet);
+            player.getCasinoAccount().withdraw(bet);
         } else {
             // It's a tie — drop into the war loop.
             handleTie(bet);
@@ -96,7 +93,7 @@ public class WarGame implements GameInterface {
             if (answer.equalsIgnoreCase("surrender")) {
                 long loss = currentBet / 2;
                 console.println("You surrender. You lose " + loss + ".");
-                // TODO: player.getArcadeAccount().withdraw(loss);
+                player.getCasinoAccount().withdraw(loss);
                 return;
             }
 
@@ -116,11 +113,11 @@ public class WarGame implements GameInterface {
 
             if (playerRank > dealerRank) {
                 console.println("You win " + currentBet + "!");
-                // TODO: player.getArcadeAccount().deposit(currentBet);
+                player.getCasinoAccount().deposit(currentBet);
                 stillTied = false;
             } else if (playerRank < dealerRank) {
                 console.println("Dealer wins. You lose " + currentBet + ".");
-                // TODO: player.getArcadeAccount().withdraw(currentBet);
+                player.getCasinoAccount().withdraw(currentBet);
                 stillTied = false;
             } else {
                 // Another tie — loop back with a doubled bet.
