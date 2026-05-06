@@ -4,7 +4,7 @@ import com.github.zipcodewilmington.utils.AnsiColor;
 import com.github.zipcodewilmington.utils.IOConsole;
 
 public class ConsoleUI {
-    private final IOConsole console = new IOConsole(AnsiColor.BLUE);
+    private final IOConsole console = new IOConsole(AnsiColor.PURPLE);
 
     public String getArcadeDashboardInput() {
         return console.getStringInput(new StringBuilder()
