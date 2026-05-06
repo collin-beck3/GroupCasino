@@ -11,8 +11,11 @@ import com.github.zipcodewilmington.utils.IOConsole;
  * Casino War — player draws a card, dealer draws a card, higher rank wins.
  * On a tie, player can surrender (lose half) or go to war (double the bet,
  * burn 6 cards, draw again). Tie-on-war keeps escalating until someone wins.
+ *
+ * NOTE: bet settlement (account.deposit / account.withdraw) is commented
+ * out because Dev E hasn't built CasinoAccount yet. Search for "TODO" to
+ * find the spots that need uncommenting later.
  */
- 
 public class WarGame implements GameInterface {
 
     private PlayerInterface player;
