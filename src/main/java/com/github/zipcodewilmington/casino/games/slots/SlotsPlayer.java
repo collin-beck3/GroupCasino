@@ -19,8 +19,13 @@ public class SlotsPlayer implements PlayerInterface {
     }
 
     @Override
-    public CasinoAccount getArcadeAccount() {
+    public CasinoAccount getCasinoAccount() {
         return casinoAccount;
+    }
+
+    @Override
+    public void setCasinoAccount(CasinoAccount account) {
+        
     }
 
 }
