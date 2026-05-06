@@ -8,7 +8,7 @@ public class ConsoleUI {
 
     public String getArcadeDashboardInput() {
         return console.getStringInput(new StringBuilder()
-                .append("Welcome to the Arcade Dashboard!")
+                .append("Welcome to the GroupCasino Dashboard!")
                 .append("\nFrom here, you can select any of the following options:")
                 .append("\n\t[ create-account ], [ select-game ], [ logout ]")
                 .toString());
@@ -17,8 +17,8 @@ public class ConsoleUI {
     public String getGameSelectionInput() {
         return console.getStringInput(new StringBuilder()
                 .append("Welcome to the Game Selection Dashboard!")
-                .append("\nFrom here, you can select any of the following options:")
-                .append("\n\t[ SLOTS ], [ NUMBERGUESS ], [ War ]")
+                .append("\nFrom here, please select any of the following options to play:")
+                .append("\n\t[ SLOTS ], [ NUMBERGUESS ], [ War ], [Roulette], [Trivia], [Dice / Craps]")
                 .toString());
     }
 

@@ -4,12 +4,18 @@ import com.github.zipcodewilmington.casino.CasinoAccount;
 import com.github.zipcodewilmington.casino.CasinoAccountManager;
 import com.github.zipcodewilmington.casino.GameInterface;
 import com.github.zipcodewilmington.casino.PlayerInterface;
-import com.github.zipcodewilmington.casino.games.numberguess.NumberGuessGame;
-import com.github.zipcodewilmington.casino.games.numberguess.NumberGuessPlayer;
-import com.github.zipcodewilmington.casino.games.slots.SlotsGame;
-import com.github.zipcodewilmington.casino.games.slots.SlotsPlayer;
 import com.github.zipcodewilmington.casino.games.war.WarGame;
 import com.github.zipcodewilmington.casino.games.war.WarPlayer;
+import com.github.zipcodewilmington.casino.games.roulette.RouletteGame;
+import com.github.zipcodewilmington.casino.games.roulette.RoulettePlayer;
+import com.github.zipcodewilmington.casino.games.dice.DiceGame;
+import com.github.zipcodewilmington.casino.games.dice.DicePlayer;
+import com.github.zipcodewilmington.casino.games.trivia.TriviaGame;
+import com.github.zipcodewilmington.casino.games.trivia.TriviaPlayer;
+import com.github.zipcodewilmington.casino.games.slots.SlotsGame;
+import com.github.zipcodewilmington.casino.games.slots.SlotsPlayer;
+import com.github.zipcodewilmington.casino.games.numberguess.NumberGuessGame;
+import com.github.zipcodewilmington.casino.games.numberguess.NumberGuessPlayer;
 
 
 public class Casino implements Runnable {
@@ -27,7 +33,7 @@ public class Casino implements Runnable {
         String arcadeDashBoardInput;
 
         do {
-            arcadeDashBoardInput = consoleUI.getArcadeDashboardInput();
+            arcadeDashBoardInput = consoleUI.getArcadeDashboardInput().trim();
 
             if ("select-game".equalsIgnoreCase(arcadeDashBoardInput)) {
                 selectGame();
@@ -45,19 +51,25 @@ public class Casino implements Runnable {
         CasinoAccount casinoAccount = casinoAccountManager.getAccount(accountName, accountPassword);
 
         if (casinoAccount == null) {
-            String errorMessage = "No account found with name of [ %s ] and password of [ %s ]";
-            throw new RuntimeException(String.format(errorMessage, accountName, accountPassword));
+            consoleUI.println("No account found with that name and password. "); 
+            return; 
         }
 
-        String gameSelectionInput = consoleUI.getGameSelectionInput().toUpperCase();
+        String gameSelectionInput = consoleUI.getGameSelectionInput().trim().toUpperCase();
 
         if (gameSelectionInput.equals("SLOTS")) {
-            play(new SlotsGame(), new SlotsPlayer());                               //eventually will implement GameInterface and fix this error
+           play(new SlotsGame(), new SlotsPlayer(casinoAccount));                               //eventually will implement GameInterface and fix this error
         } else if (gameSelectionInput.equals("NUMBERGUESS")) {
-            play(new NumberGuessGame(), new NumberGuessPlayer());                   //same as above ^
+            play(new NumberGuessGame(), new NumberGuessPlayer(casinoAccount));                   //same as above ^
         } else if (gameSelectionInput.equals("WAR")) {
-            play(new WarGame(), new WarPlayer());
-        } else {
+            play(new WarGame(), new WarPlayer(casinoAccount));
+        } else if (gameSelectionInput.equals("ROULETTE")) {
+            play(new RouletteGame(), new RoulettePlayer(casinoAccount));
+        } else if (gameSelectionInput.equals("DICE")) { 
+            play(new DiceGame(), new DicePlayer(casinoAccount)); 
+        } else if (gameSelectionInput.equals("TRIVIA")) {
+            play(new TriviaGame(), new TriviaPlayer(casinoAccount));
+        }else {
             String errorMessage = "[ %s ] is an invalid game selection";
             throw new RuntimeException(String.format(errorMessage, gameSelectionInput));
         }
@@ -71,10 +83,14 @@ public class Casino implements Runnable {
 
         CasinoAccount newAccount = casinoAccountManager.createAccount(accountName, accountPassword);
         casinoAccountManager.registerAccount(newAccount);
+
+        consoleUI.println("Account created successfully!"); 
     }
 
     private void play(GameInterface game, PlayerInterface player) {
+
         game.add(player);
         game.run();
+        game.remove(player); 
     }
 }
