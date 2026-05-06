@@ -1,7 +1,8 @@
 package com.github.zipcodewilmington.casino.games.war;
 
-import com.github.zipcodewilmington.CasinoAccount;
+import com.github.zipcodewilmington.casino.CasinoAccount;
 import com.github.zipcodewilmington.casino.PlayerInterface;
+
 
 public class WarPlayer implements PlayerInterface {
 
@@ -17,6 +18,11 @@ public class WarPlayer implements PlayerInterface {
     @Override
     public CasinoAccount getCasinoAccount() {
         return account;
+    }
+
+    @Override
+    public void setCasinoAccount(CasinoAccount casinoAccount) {
+        this.account = casinoAccount;
     }
 
     @Override
