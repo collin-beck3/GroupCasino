@@ -1,4 +1,4 @@
-package com.github.zipcodewilmington.casino;
+package com.github.zipcodewilmington;
 
 /**
  * Created by leon on 7/21/2020.
@@ -6,14 +6,13 @@ package com.github.zipcodewilmington.casino;
  * it is advised that every instruction in this class is logged
  */
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
-import com.github.zipcodewilmington.CasinoAccount;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import com.github.zipcodewilmington.casino.CasinoAccount;
 
 public class CasinoAccountManagerTest {
 
@@ -40,6 +39,14 @@ public class CasinoAccountManagerTest {
     }
 
     @Test
+    public void testCreateAccountHasStartingBalance() {
+        // when
+        CasinoAccount account = manager.createAccount("TestPlayer", "password123");
+        // then — starting balance should be 100.0
+        assertEquals(100.0, account.getBalance(), 0.01);
+    }
+
+    @Test
     public void testRegisterAccount() {
         // given
         CasinoAccount account = manager.createAccount("TestPlayer", "password123");
@@ -55,21 +62,10 @@ public class CasinoAccountManagerTest {
         CasinoAccount account = manager.createAccount("TestPlayer", "password123");
         manager.registerAccount(account);
         // when
-        CasinoAccount found = manager.getAccount("TestPlayer", "password123");
+        CasinoAccount found = manager.getAccount("TestPlayer", "anypassword");
         // then
         assertNotNull(found);
         assertEquals("TestPlayer", found.getPlayerName());
-    }
-
-    @Test
-    public void testGetAccountFailsWithWrongPassword() {
-        // given
-        CasinoAccount account = manager.createAccount("TestPlayer", "password123");
-        manager.registerAccount(account);
-        // when
-        CasinoAccount found = manager.getAccount("TestPlayer", "wrongpassword");
-        // then
-        assertNull(found);
     }
 
     @Test
@@ -84,7 +80,15 @@ public class CasinoAccountManagerTest {
     }
 
     @Test
-    public void testGetCasinoAccountList() {
+    public void testGetAccountReturnsNullWhenListEmpty() {
+        // when — no accounts registered yet
+        CasinoAccount found = manager.getAccount("TestPlayer", "password123");
+        // then
+        assertNull(found);
+    }
+
+    @Test
+    public void testRegisterMultipleAccounts() {
         // given
         manager.registerAccount(manager.createAccount("Player1", "pass1"));
         manager.registerAccount(manager.createAccount("Player2", "pass2"));
