@@ -83,8 +83,8 @@ public class SlotsGame implements GameInterface {
         while(true) {
             multiplier = 0;
             PlayerInterface player = players.get(0);
-            CasinoAccount account = player.getArcadeAccount();
-            System.out.println("Your current balance: " + account.getAccountBalance());
+            CasinoAccount account = player.getCasinoAccount();
+            System.out.println("Your current balance: " + account.getBalance());
             IOConsole input = new IOConsole();
             while(true) {
                 bet = input.getIntegerInput("Enter your bet: ");
@@ -123,7 +123,7 @@ public class SlotsGame implements GameInterface {
                 System.out.println("You didn't win anything :(");
             }
 
-            if(player.getArcadeAccount().getAccountBalance() <= 0) {
+            if(player.getCasinoAccount().getAccountBalance() <= 0) {
                 System.out.println("You are out of money! Game over.");
                 return;
             }
