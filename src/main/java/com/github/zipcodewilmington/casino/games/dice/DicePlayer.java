@@ -2,7 +2,7 @@ package com.github.zipcodewilmington.casino.games.dice;
 
 import java.util.Scanner;
 
-import com.github.zipcodewilmington.CasinoAccount;
+import com.github.zipcodewilmington.casino.CasinoAccount;
 import com.github.zipcodewilmington.casino.PlayerInterface;
 
 public class DicePlayer implements PlayerInterface {

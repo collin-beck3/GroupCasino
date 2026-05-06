@@ -2,7 +2,7 @@ package com.github.zipcodewilmington.casino.games.roulette;
 
 import java.util.Scanner;
 
-import com.github.zipcodewilmington.CasinoAccount;
+import com.github.zipcodewilmington.casino.CasinoAccount;
 import com.github.zipcodewilmington.casino.PlayerInterface;
 
 public class RoulettePlayer implements PlayerInterface {

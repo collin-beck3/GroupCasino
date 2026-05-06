@@ -1,7 +1,26 @@
 package com.github.zipcodewilmington.casino.games.slots;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+import com.github.zipcodewilmington.casino.CasinoAccount;
+import com.github.zipcodewilmington.casino.PlayerInterface;
+
 /**
- * Created by leon on 7/21/2020.
+ * Created by Michael Sie
  */
-public class SlotsPlayer {
+public class SlotsPlayer implements PlayerInterface {
+
+   private CasinoAccount casinoAccount;
+
+    public SlotsPlayer(CasinoAccount casinoAccount) {
+        this.casinoAccount = casinoAccount;
+    }
+
+    @Override
+    public CasinoAccount getArcadeAccount() {
+        return casinoAccount;
+    }
+
 }
