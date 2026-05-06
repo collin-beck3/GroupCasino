@@ -99,4 +99,24 @@ public class CasinoAccountTest {
         // then
         assertNotNull(account);
     }
+
+    @Test
+    public void testNoArgConstructorPlayerName() {
+        // given
+        CasinoAccount guestAccount = new CasinoAccount();
+        // when
+        String name = guestAccount.getPlayerName();
+        // then
+        assertEquals("Guest", name);
+    }
+
+    @Test
+    public void testNoArgConstructorBalance() {
+        // given
+        CasinoAccount guestAccount = new CasinoAccount();
+        // when
+        double balance = guestAccount.getBalance();
+        // then
+        assertEquals(0.0, balance, 0.01);
+    }
 }
