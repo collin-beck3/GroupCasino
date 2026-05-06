@@ -74,10 +74,10 @@ public class WarGame implements GameInterface {
 
         if (playerRank > dealerRank) {
             console.println("You win " + bet + "!");
-            // TODO: player.getArcadeAccount().deposit(bet);
+            player.getCasinoAccount().deposit(bet);
         } else if (playerRank < dealerRank) {
             console.println("Dealer wins. You lose " + bet + ".");
-            // TODO: player.getArcadeAccount().withdraw(bet);
+            player.getCasinoAccount().withdraw(bet);
         } else {
             // It's a tie — drop into the war loop.
             handleTie(bet);
@@ -96,7 +96,7 @@ public class WarGame implements GameInterface {
             if (answer.equalsIgnoreCase("surrender")) {
                 long loss = currentBet / 2;
                 console.println("You surrender. You lose " + loss + ".");
-                // TODO: player.getArcadeAccount().withdraw(loss);
+                player.getCasinoAccount().withdraw(loss);
                 return;
             }
 
@@ -116,11 +116,11 @@ public class WarGame implements GameInterface {
 
             if (playerRank > dealerRank) {
                 console.println("You win " + currentBet + "!");
-                // TODO: player.getArcadeAccount().deposit(currentBet);
+                player.getCasinoAccount().deposit(currentBet);
                 stillTied = false;
             } else if (playerRank < dealerRank) {
                 console.println("Dealer wins. You lose " + currentBet + ".");
-                // TODO: player.getArcadeAccount().withdraw(currentBet);
+                player.getCasinoAccount().withdraw(currentBet);
                 stillTied = false;
             } else {
                 // Another tie — loop back with a doubled bet.

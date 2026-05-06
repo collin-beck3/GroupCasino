@@ -15,16 +15,10 @@ public class WarPlayer implements PlayerInterface {
     }
 
     @Override
-    public CasinoAccount getArcadeAccount() {
+    public CasinoAccount getCasinoAccount() {
         return account;
     }
 
-    // PlayerInterface requires a play() method, but in our setup
-    // WarGame is the one that runs the game flow, not the player.
-    // So this just returns null.
-    //
-    // The weird "<SomeReturnType>" syntax comes from the interface —
-    // we have to write it that way to match what's there.
     @Override
     public <SomeReturnType> SomeReturnType play() {
         return null;
