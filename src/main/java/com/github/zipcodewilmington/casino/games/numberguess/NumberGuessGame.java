@@ -25,6 +25,7 @@ public class NumberGuessGame implements GameInterface {
         players = new ArrayList<>();
     }
 
+    @Override
     public void run() {
         if(players.isEmpty()) {
                 System.out.println("At least 1 player needed.");
@@ -44,7 +45,7 @@ public class NumberGuessGame implements GameInterface {
                     int guess = player.play();
                     turn++;
                     if(guess == number){
-                        System.out.println("Congratulation " + player.player.getArcadeAccount().getAccountName() + " wins!");
+                        System.out.println("Congratulation " + player.getCasinoAccount().getPlayerName() + " wins!");
                         gameWon = true;
                         break;
                     }
