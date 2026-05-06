@@ -1,4 +1,4 @@
-package com.github.zipcodewilmington.casino.games.numberguess;
+package com.github.zipcodewilmington.casino.games.trivia;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,18 +10,18 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 import com.github.zipcodewilmington.casino.CasinoAccount;
 
-public class NumberGuessGameTest {
+public class TriviaGameTest {
 
     private CasinoAccount account;
-    private NumberGuessPlayer player;
-    private NumberGuessGame game;
+    private TriviaPlayer player;
+    private TriviaGame game;
 
     @BeforeEach
     public void setUp() {
         // given
         account = new CasinoAccount("TestPlayer", 100.0);
-        player  = new NumberGuessPlayer(account);
-        game    = new NumberGuessGame();
+        player  = new TriviaPlayer(account);
+        game    = new TriviaGame();
         game.add(player);
     }
 
@@ -33,7 +33,7 @@ public class NumberGuessGameTest {
     @Test
     public void testAddPlayer() {
         // given — fresh game with no players
-        NumberGuessGame freshGame = new NumberGuessGame();
+        TriviaGame freshGame = new TriviaGame();
         // when
         freshGame.add(player);
         // then — confirms the exact same player object was added
@@ -59,8 +59,8 @@ public class NumberGuessGameTest {
     }
 
     @Test
-    public void testNoBalanceChangeOnPlay() {
-        // given — non-gambling game, balance must never change
+    public void testNonGamblingBalanceUnchanged() {
+        // given — trivia is non-gambling, balance must never change
         double before = account.getBalance();
         // when
         game.run();

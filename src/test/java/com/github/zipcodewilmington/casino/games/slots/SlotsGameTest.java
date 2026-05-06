@@ -1,4 +1,4 @@
-package com.github.zipcodewilmington.casino.games.numberguess;
+package com.github.zipcodewilmington.casino.games.slots;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -10,18 +10,18 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 import com.github.zipcodewilmington.casino.CasinoAccount;
 
-public class NumberGuessGameTest {
+public class SlotsGameTest {
 
     private CasinoAccount account;
-    private NumberGuessPlayer player;
-    private NumberGuessGame game;
+    private SlotsPlayer player;
+    private SlotsGame game;
 
     @BeforeEach
     public void setUp() {
         // given
         account = new CasinoAccount("TestPlayer", 100.0);
-        player  = new NumberGuessPlayer(account);
-        game    = new NumberGuessGame();
+        player  = new SlotsPlayer(account);
+        game    = new SlotsGame();
         game.add(player);
     }
 
@@ -33,7 +33,7 @@ public class NumberGuessGameTest {
     @Test
     public void testAddPlayer() {
         // given — fresh game with no players
-        NumberGuessGame freshGame = new NumberGuessGame();
+        SlotsGame freshGame = new SlotsGame();
         // when
         freshGame.add(player);
         // then — confirms the exact same player object was added
@@ -59,11 +59,11 @@ public class NumberGuessGameTest {
     }
 
     @Test
-    public void testNoBalanceChangeOnPlay() {
-        // given — non-gambling game, balance must never change
+    public void testAccountBalanceIntactAfterRemove() {
+        // given
         double before = account.getBalance();
         // when
-        game.run();
+        game.remove(player);
         // then — same account object has same balance
         assertSame(account, player.getCasinoAccount());
         assertEquals(before, account.getBalance(), 0.01);
