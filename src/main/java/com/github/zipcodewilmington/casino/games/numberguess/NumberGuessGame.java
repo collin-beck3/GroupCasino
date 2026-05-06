@@ -40,7 +40,7 @@ public class NumberGuessGame implements GameInterface {
                 for(int i = 0; i < players.size(); i++) {
                     int actualIndex = (startIndex + i) % players.size();
                     PlayerInterface player = players.get(actualIndex);
-                    System.out.println("Player: " + player.getCasinoAccount().getAccountName() + ", it's your turn.");
+                    System.out.println("Player: " + player.getCasinoAccount().getPlayerName() + ", it's your turn.");
                     int guess = player.play();
                     turn++;
                     if(guess == number){
