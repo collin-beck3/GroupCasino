@@ -1,10 +1,10 @@
 package com.github.zipcodewilmington.casino.games.dice;
 
-import com.github.zipcodewilmington.casino.GameInterface;
-import com.github.zipcodewilmington.casino.PlayerInterface;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import com.github.zipcodewilmington.casino.GameInterface;
+import com.github.zipcodewilmington.casino.PlayerInterface;
 
 /**
  * Dice Game — roll 2 dice (sum 2-12).

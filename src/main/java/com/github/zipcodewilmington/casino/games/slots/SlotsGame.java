@@ -163,4 +163,8 @@ public class SlotsGame implements GameInterface {
         players.remove(player);
     }
 
+    public List<PlayerInterface> getPlayers() {
+        return players;
+    }
+
 }
