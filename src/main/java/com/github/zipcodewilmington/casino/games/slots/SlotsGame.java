@@ -78,6 +78,7 @@ public class SlotsGame implements GameInterface {
         twoMatchPayout.put("Banana", 2.0);
     }
 
+    @Override
     public void run() {
         printGameStart();
         while(true) {
@@ -92,7 +93,7 @@ public class SlotsGame implements GameInterface {
                     System.out.println("Bet must be greater than 0.");
                     continue;
                 }
-                if (bet > account.getAccountBalance()) {
+                if (bet > account.getBalance()) {
                     System.out.println("Insufficient balance.");
                     continue;
                 }
@@ -123,7 +124,7 @@ public class SlotsGame implements GameInterface {
                 System.out.println("You didn't win anything :(");
             }
 
-            if(player.getCasinoAccount().getAccountBalance() <= 0) {
+            if(player.getCasinoAccount().getBalance() <= 0) {
                 System.out.println("You are out of money! Game over.");
                 return;
             }
