@@ -79,5 +79,9 @@ public class TriviaGame implements GameInterface {
             console.println("Please choose a number between 1 and " + numberOfChoices + ".");
         }
     }
+
+    public List<PlayerInterface> getPlayers() {
+        return players;
+    }
 }
 

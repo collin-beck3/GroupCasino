@@ -68,7 +68,13 @@ public class WarGame implements GameInterface {
     }
 
     private void playOneRound() {
+        console.println("Your current balance: $" + player.getCasinoAccount().getBalance());
         long bet = console.getLongInput("How much do you want to bet?");
+
+        if (!player.getCasinoAccount().withdraw(bet)) {
+            console.println("Insufficient funds for that bet.");
+            return;
+        }
 
         // Each side draws one card.
         Card playerCard = deck.draw();
@@ -82,10 +88,10 @@ public class WarGame implements GameInterface {
 
         if (playerRank > dealerRank) {
             console.println("You win " + bet + "!");
-            player.getCasinoAccount().deposit(bet);
+            player.getCasinoAccount().deposit(2 * bet);
         } else if (playerRank < dealerRank) {
             console.println("Dealer wins. You lose " + bet + ".");
-            player.getCasinoAccount().withdraw(bet);
+            // Bet already withdrawn
         } else {
             // It's a tie — drop into the war loop.
             handleTie(bet);
@@ -104,15 +110,21 @@ public class WarGame implements GameInterface {
             if (answer.equalsIgnoreCase("surrender")) {
                 long loss = currentBet / 2;
                 console.println("You surrender. You lose " + loss + ".");
-                player.getCasinoAccount().withdraw(loss);
+                player.getCasinoAccount().deposit(currentBet / 2);
                 return;
             }
 
-            // Going to war: burn 6 cards (3 each side) and double the bet.
+            // Going to war: withdraw additional bet to double down.
+            if (!player.getCasinoAccount().withdraw(currentBet)) {
+                console.println("Insufficient funds for war.");
+                return;
+            }
+            currentBet = currentBet * 2;
+
+            // Burn 6 cards (3 each side).
             for (int i = 0; i < 6; i++) {
                 deck.draw();
             }
-            currentBet = currentBet * 2;
 
             Card playerCard = deck.draw();
             Card dealerCard = deck.draw();
@@ -124,11 +136,11 @@ public class WarGame implements GameInterface {
 
             if (playerRank > dealerRank) {
                 console.println("You win " + currentBet + "!");
-                player.getCasinoAccount().deposit(currentBet);
+                player.getCasinoAccount().deposit(2 * currentBet);
                 stillTied = false;
             } else if (playerRank < dealerRank) {
                 console.println("Dealer wins. You lose " + currentBet + ".");
-                player.getCasinoAccount().withdraw(currentBet);
+                // Bet already withdrawn
                 stillTied = false;
             } else {
                 // Another tie — loop back with a doubled bet.
