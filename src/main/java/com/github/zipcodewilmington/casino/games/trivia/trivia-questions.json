@@ -1,0 +1,102 @@
+[
+  {
+    "text": "Where were the 2008 Summer Olympics held?",
+    "choices": ["Athens", "Beijing", "London", "Sydney"],
+    "correctAnswer": 2
+  },
+  {
+    "text": "What is the largest ocean on Earth?",
+    "choices": ["Atlantic Ocean", "Indian Ocean", "Pacific Ocean", "Arctic Ocean"],
+    "correctAnswer": 3
+  },
+  {
+    "text": "What is the capital of Iceland?",
+    "choices": ["Reykjavik", "Copenhagen", "Oslo", "Stockholm"],
+    "correctAnswer": 1
+  },
+  {
+    "text": "What is Delaware's state dog?",
+    "choices": ["Husky", "Pug", "Rescue Dog", "Beagle"],
+    "correctAnswer": 3
+  },
+  {
+    "text": "When was air conditioning invented?",
+    "choices": ["1893", "1902", "1921", "1946"],
+    "correctAnswer": 1
+  },
+  {
+    "text": "What was the first video game?",
+    "choices": ["Pong", "Tennis for Two", "Space Invaders", "Chessmaster"],
+    "correctAnswer": 2
+  },
+  {
+    "text": "Who's on first?",
+    "choices": ["What", "Who", "I Don't Know", "Today"],
+    "correctAnswer": 2
+  },
+  {
+    "text": "Who painted the Mona Lisa?",
+    "choices": ["Michaelangelo", "Leonardo de Vincinni", "Leonardo da Vinci", "Leonardo de Caprio"],
+    "correctAnswer": 3
+  },
+  {
+    "text": "Who is NOT a founder of Apple?",
+    "choices": ["Steve Jobs", "Steve Wozniak", "Ronald Wayne", "Daniel Fiennes"],
+    "correctAnswer": 4
+  },
+  {
+    "text": "Which planet is closest to the Sun?",
+    "choices": ["Venus", "Earth", "Mercury", "Mars"],
+    "correctAnswer": 3
+  },
+  {
+    "text": "What is the hardest natural substance on Earth?",
+    "choices": ["Gold", "Diamond", "Iron", "Quartz"],
+    "correctAnswer": 2
+  },
+  {
+    "text": "Which ocean is the smallest?",
+    "choices": ["Pacific Ocean", "Atlantic Ocean", "Indian Ocean", "Arctic Ocean"],
+    "correctAnswer": 4
+  },
+  {
+    "text": "What year did the war of 1812 end?",
+    "choices": ["1812", "1815", "1818", "1823"],
+    "correctAnswer": 2
+  },
+  {
+    "text": "What is the lowest point on Earth?",
+    "choices": ["Dead Sea Point Delta", "Laswell Valley", "Denman Glacier", "The Challenger Deep"],
+    "correctAnswer": 4
+  },
+  {
+    "text": "What is the longest river in the world?",
+    "choices": ["Amazon River", "Nile River", "Yangtze River", "Mississippi River"],
+    "correctAnswer": 2
+  },
+  {
+    "text": "Which car manufacturer invented the seatbelt?",
+    "choices": ["Buick", "Ford", "Mercedes", "Volvo"],
+    "correctAnswer": 4
+  },
+  {
+    "text": "What is the currency of Japan?",
+    "choices": ["Won", "Yen", "Dollar", "Baht"],
+    "correctAnswer": 2
+  },
+  {
+    "text": "This G shaped letter comes between F and H.",
+    "choices": ["G", "P", "4", "&"],
+    "correctAnswer": 1
+  },
+  {
+    "text": "What is the largest desert in the world?",
+    "choices": ["Sahara Desert", "Gobi Desert", "Antarctic Desert", "Arabian Desert"],
+    "correctAnswer": 3
+  },
+  {
+    "text": "Who wrote 'Romeo and Juliet'?",
+    "choices": ["Charles Dickens", "William Shakespeare", "Jane Austen", "Mark Twain"],
+    "correctAnswer": 2
+  }
+]
