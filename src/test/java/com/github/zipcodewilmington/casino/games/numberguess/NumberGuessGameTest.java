@@ -30,6 +30,14 @@ public class NumberGuessGameTest {
         assertNotNull(game);
     }
 
+    //@Test
+    //public void testAddPlayer() {
+        //NumberGuessGame freshGame = new NumberGuessGame();
+        //freshGame.add(player);
+        // assertSame(player, freshGame.getPlayers().get(0));
+        // TODO — uncomment when Dev 2 adds getPlayers()
+    //}
+
     @Test
     public void testAddPlayer() {
         // given — fresh game with no players

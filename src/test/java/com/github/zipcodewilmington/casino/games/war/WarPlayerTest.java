@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 
-import com.github.zipcodewilmington.CasinoAccount;
+import com.github.zipcodewilmington.casino.CasinoAccount;
 import com.github.zipcodewilmington.casino.shared.Card;
 
 public class WarPlayerTest {
@@ -38,7 +38,7 @@ public class WarPlayerTest {
     @Test
     public void testSetAccount() {
         // given
-        CasinoAccount newAccount = new CasinoAccount("NewPlayer", 50.0);
+        CasinoAccount newAccount = new CasinoAccount("NewPlayer", 100.0);
         // when
         player.setCasinoAccount(newAccount);
         // then
