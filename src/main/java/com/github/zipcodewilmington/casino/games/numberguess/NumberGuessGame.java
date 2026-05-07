@@ -95,4 +95,8 @@ public class NumberGuessGame implements GameInterface {
         players.remove(player);
     }
 
+    public List<PlayerInterface> getPlayers() {
+        return players;
+    }
+
 }
