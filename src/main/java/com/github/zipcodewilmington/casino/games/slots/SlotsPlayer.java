@@ -1,9 +1,5 @@
 package com.github.zipcodewilmington.casino.games.slots;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 import com.github.zipcodewilmington.casino.CasinoAccount;
 import com.github.zipcodewilmington.casino.PlayerInterface;
 
@@ -26,6 +22,11 @@ public class SlotsPlayer implements PlayerInterface {
     @Override
     public void setCasinoAccount(CasinoAccount account) {
         
+    }
+
+    @Override
+    public <SomeReturnType> SomeReturnType play() {
+        return null;
     }
 
 }
