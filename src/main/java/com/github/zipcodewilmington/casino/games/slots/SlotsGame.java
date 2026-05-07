@@ -80,6 +80,10 @@ public class SlotsGame implements GameInterface {
 
     @Override
     public void run() {
+        if (players.isEmpty()) {
+            System.out.println("You don't have enough balance.");
+            return;
+        }
         printGameStart();
         while(true) {
             multiplier = 0;
@@ -149,7 +153,9 @@ public class SlotsGame implements GameInterface {
 
     @Override
     public void add(PlayerInterface player) {
-        players.add(player);
+        if(player.getCasinoAccount().getBalance() > 0) {
+            players.add(player);
+        }
     }
 
     @Override

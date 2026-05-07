@@ -21,6 +21,7 @@ public class Casino implements Runnable {
 
     private final ConsoleUI consoleUI;
     private final CasinoAccountManager casinoAccountManager;
+    private CasinoAccount currentAccount; 
 
     public Casino(ConsoleUI consoleUI) {
         this.consoleUI = consoleUI;
@@ -38,46 +39,59 @@ public class Casino implements Runnable {
                 selectGame();
             } else if ("create-account".equalsIgnoreCase(arcadeDashBoardInput)) {
                 createAccount();
+            } else if (!"logout".equalsIgnoreCase(arcadeDashBoardInput)) {
+                //consoleUI.println("Invalid option. Please choose create-account, select-game, or logout."); 
+                currentAccount = null; 
             }
 
         } while (!"logout".equalsIgnoreCase(arcadeDashBoardInput));
     }
 
     private void selectGame() {
-        String accountName = consoleUI.getAccountName();
+        if (currentAccount == null) {
+            login();
+        }
+
+        if (currentAccount == null) { 
+            consoleUI.println("Login failed.");
+            return; 
+        }
+        /*String accountName = consoleUI.getAccountName();
         String accountPassword = consoleUI.getAccountPassword();
 
         CasinoAccount casinoAccount = casinoAccountManager.getAccount(accountName, accountPassword);
 
         if (casinoAccount == null) {
             consoleUI.println("No account found with that name and password. "); 
-            return; 
-        }
+            return; */
+        //}
 
         String gameSelectionInput = consoleUI.getGameSelectionInput().trim().toUpperCase();
 
         switch (gameSelectionInput) {
          case "SLOTS": 
-           play(new SlotsGame(), new SlotsPlayer(casinoAccount));    
+           play(new SlotsGame(), new SlotsPlayer(currentAccount));    
            break;                           
          case "NUMBERGUESS":
-            play(new NumberGuessGame(), new NumberGuessPlayer(casinoAccount)); 
+            play(new NumberGuessGame(), new NumberGuessPlayer(currentAccount)); 
             break;                 
          case "WAR":
-            play(new WarGame(), new WarPlayer(casinoAccount));
+            play(new WarGame(), new WarPlayer(currentAccount));
             break;
          case "ROULETTE":
-            play(new RouletteGame(), new RoulettePlayer(casinoAccount));
+            play(new RouletteGame(), new RoulettePlayer(currentAccount));
             break;
          case "DICE":
-            play(new DiceGame(), new DicePlayer(casinoAccount)); 
+         case "CRAPS":
+            play(new DiceGame(), new DicePlayer(currentAccount)); 
             break;
          case "TRIVIA":
-            play(new TriviaGame(), new TriviaPlayer(casinoAccount));
+            play(new TriviaGame(), new TriviaPlayer(currentAccount));
             break;
         default: 
-            String errorMessage = "[ %s ] is an invalid game selection";
-            throw new RuntimeException(String.format(errorMessage, gameSelectionInput));
+            consoleUI.println("[ " + gameSelectionInput + " ] is an invalid game selection.");
+            //String errorMessage = "[ %s ] is an invalid game selection";
+            //throw new RuntimeException(String.format(errorMessage, gameSelectionInput));
         }
         
     }
@@ -99,5 +113,12 @@ public class Casino implements Runnable {
         game.add(player);
         game.run();
         game.remove(player); 
+    }
+
+    private void login() { 
+        String accountName = consoleUI.getAccountName(); 
+        String accountPassword = consoleUI.getAccountPassword();
+
+        currentAccount = casinoAccountManager.getAccount(accountName, accountPassword);
     }
 }
