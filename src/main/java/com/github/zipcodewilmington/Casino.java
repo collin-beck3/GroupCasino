@@ -3,18 +3,18 @@ package com.github.zipcodewilmington;
 import com.github.zipcodewilmington.casino.CasinoAccount;
 import com.github.zipcodewilmington.casino.GameInterface;
 import com.github.zipcodewilmington.casino.PlayerInterface;
-import com.github.zipcodewilmington.casino.games.war.WarGame;
-import com.github.zipcodewilmington.casino.games.war.WarPlayer;
-import com.github.zipcodewilmington.casino.games.roulette.RouletteGame;
-import com.github.zipcodewilmington.casino.games.roulette.RoulettePlayer;
 import com.github.zipcodewilmington.casino.games.dice.DiceGame;
 import com.github.zipcodewilmington.casino.games.dice.DicePlayer;
-import com.github.zipcodewilmington.casino.games.trivia.TriviaGame;
-import com.github.zipcodewilmington.casino.games.trivia.TriviaPlayer;
-import com.github.zipcodewilmington.casino.games.slots.SlotsGame;
-import com.github.zipcodewilmington.casino.games.slots.SlotsPlayer;
 import com.github.zipcodewilmington.casino.games.numberguess.NumberGuessGame;
 import com.github.zipcodewilmington.casino.games.numberguess.NumberGuessPlayer;
+import com.github.zipcodewilmington.casino.games.roulette.RouletteGame;
+import com.github.zipcodewilmington.casino.games.roulette.RoulettePlayer;
+import com.github.zipcodewilmington.casino.games.slots.SlotsGame;
+import com.github.zipcodewilmington.casino.games.slots.SlotsPlayer;
+import com.github.zipcodewilmington.casino.games.trivia.TriviaGame;
+import com.github.zipcodewilmington.casino.games.trivia.TriviaPlayer;
+import com.github.zipcodewilmington.casino.games.war.WarGame;
+import com.github.zipcodewilmington.casino.games.war.WarPlayer;
 
 
 public class Casino implements Runnable {
@@ -56,22 +56,30 @@ public class Casino implements Runnable {
 
         String gameSelectionInput = consoleUI.getGameSelectionInput().trim().toUpperCase();
 
-        if (gameSelectionInput.equals("SLOTS")) {
-           play(new SlotsGame(), new SlotsPlayer(casinoAccount));                               //eventually will implement GameInterface and fix this error
-        } else if (gameSelectionInput.equals("NUMBERGUESS")) {
-            play(new NumberGuessGame(), new NumberGuessPlayer(casinoAccount));                   //same as above ^
-        } else if (gameSelectionInput.equals("WAR")) {
+        switch (gameSelectionInput) {
+         case "SLOTS": 
+           play(new SlotsGame(), new SlotsPlayer(casinoAccount));    
+           break;                           
+         case "NUMBERGUESS":
+            play(new NumberGuessGame(), new NumberGuessPlayer(casinoAccount)); 
+            break;                 
+         case "WAR":
             play(new WarGame(), new WarPlayer(casinoAccount));
-        } else if (gameSelectionInput.equals("ROULETTE")) {
+            break;
+         case "ROULETTE":
             play(new RouletteGame(), new RoulettePlayer(casinoAccount));
-        } else if (gameSelectionInput.equals("DICE")) { 
+            break;
+         case "DICE":
             play(new DiceGame(), new DicePlayer(casinoAccount)); 
-        } else if (gameSelectionInput.equals("TRIVIA")) {
+            break;
+         case "TRIVIA":
             play(new TriviaGame(), new TriviaPlayer(casinoAccount));
-        }else {
+            break;
+        default: 
             String errorMessage = "[ %s ] is an invalid game selection";
             throw new RuntimeException(String.format(errorMessage, gameSelectionInput));
         }
+        
     }
 
     private void createAccount() {
