@@ -34,7 +34,7 @@ public class SlotsPlayerTest {
     @Test
     public void testSetAccount() {
         // given
-        CasinoAccount newAccount = new CasinoAccount("NewPlayer", 50.0);
+        CasinoAccount newAccount = new CasinoAccount("NewPlayer", 100.0);
         // when
         player.setCasinoAccount(newAccount);
         // then
