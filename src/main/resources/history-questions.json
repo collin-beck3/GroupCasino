@@ -1,0 +1,52 @@
+[
+  {
+    "text": "Who was the first President of the United States?",
+    "choices": ["George Washington", "Thomas Jefferson", "Abraham Lincoln", "John Adams"],
+    "correctAnswer": 1
+  },
+  {
+    "text": "In which year did World War II end?",
+    "choices": ["1939", "1945", "1950", "1941"],
+    "correctAnswer": 2
+  },
+  {
+    "text": "Which ancient civilization built the pyramids at Giza?",
+    "choices": ["Romans", "Greeks", "Egyptians", "Mayans"],
+    "correctAnswer": 3
+  },
+  {
+    "text": "Who was the British monarch during the American Revolution?",
+    "choices": ["Queen Elizabeth I", "King Henry VIII", "Queen Victoria", "King George III"],
+    "correctAnswer": 4
+  },
+  {
+    "text": "What was the name of the ship that carried the Pilgrims to America in 1620?",
+    "choices": ["Mayflower", "Santa Maria", "Beagle", "Endeavour"],
+    "correctAnswer": 1
+  },
+  {
+    "text": "Which empire was ruled by Julius Caesar?",
+    "choices": ["Ottoman Empire", "Roman Empire", "British Empire", "Mongol Empire"],
+    "correctAnswer": 2
+  },
+  {
+    "text": "In which battle was Napoleon defeated in 1815?",
+    "choices": ["Battle of Austerlitz", "Battle of Borodino", "Battle of Leipzig", "Battle of Waterloo"],
+    "correctAnswer": 4
+  },
+  {
+    "text": "Who was the first woman to fly solo across the Atlantic Ocean?",
+    "choices": ["Bessie Coleman", "Amelia Earhart", "Harriet Quimby", "Jacqueline Cochran"],
+    "correctAnswer": 2
+  },
+  {
+    "text": "Which war was fought between the North and South regions in the United States from 1861 to 1865?",
+    "choices": ["Revolutionary War", "War of 1812", "Mexican-American War", "American Civil War"],
+    "correctAnswer": 4
+  },
+  {
+    "text": "Who was the leader of the Soviet Union during World War II?",
+    "choices": ["Vladimir Lenin", "Joseph Stalin", "Nikita Khrushchev", "Leon Trotsky"],
+    "correctAnswer": 2
+  }
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "text": "Which country has won the most FIFA World Cups?",
+    "choices": ["Brazil", "Germany", "Italy", "Argentina"],
+    "correctAnswer": 1
+  },
+  {
+    "text": "In which sport would you perform a slam dunk?",
+    "choices": ["Volleyball", "Basketball", "Tennis", "Soccer"],
+    "correctAnswer": 2
+  },
+  {
+    "text": "Who holds the record for the most home runs in Major League Baseball?",
+    "choices": ["Hank Aaron", "Babe Ruth", "Barry Bonds", "Willie Mays"],
+    "correctAnswer": 3
+  },
+  {
+    "text": "Which tennis player has won the most Grand Slam singles titles?",
+    "choices": ["Roger Federer", "Rafael Nadal", "Steffi Graf", "Serena Williams"],
+    "correctAnswer": 4
+  },
+  {
+    "text": "What is the maximum score possible in ten-pin bowling?",
+    "choices": ["200", "250", "300", "350"],
+    "correctAnswer": 3
+  },
+  {
+    "text": "Which sport is known as 'America's Pastime'?",
+    "choices": ["Football", "Basketball", "Baseball", "Hockey"],
+    "correctAnswer": 3
+  },
+  {
+    "text": "In which Olympic sport do athletes compete in the 'pommel horse' event?",
+    "choices": ["Swimming", "Track and Field", "Boxing", "Gymnastics"],
+    "correctAnswer": 4
+  },
+  {
+    "text": "Who is the all-time leading scorer in NBA history?",
+    "choices": ["Kobe Bryant", "Michael Jordan", "Kareem Abdul-Jabbar", "LeBron James"],
+    "correctAnswer": 4
+  },
+  {
+    "text": "Which Formula 1 driver has won the most World Championships?",
+    "choices": ["Lewis Hamilton", "Ayrton Senna", "Sebastian Vettel", "Michael Schumacher"],
+    "correctAnswer": 4
+  },
+  {
+    "text": "What is the length of a standard marathon race?",
+    "choices": ["13.1 miles", "10 miles", "5 miles", "26.2 miles"],
+    "correctAnswer": 4
+  }
+]
