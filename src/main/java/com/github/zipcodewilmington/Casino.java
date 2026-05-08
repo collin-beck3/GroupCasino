@@ -56,6 +56,12 @@ public class Casino implements Runnable {
             consoleUI.println("Login failed.");
             return; 
         }
+
+        if (currentAccount.getBalance() <= 0) {
+            consoleUI.println("Your balance is $0, you cannot play any games.");
+            consoleUI.println(" LOSER! LOSER! Please create another account.");
+            return; 
+        }
         /*String accountName = consoleUI.getAccountName();
         String accountPassword = consoleUI.getAccountPassword();
 
@@ -65,6 +71,8 @@ public class Casino implements Runnable {
             consoleUI.println("No account found with that name and password. "); 
             return; */
         //}
+        consoleUI.println("\n"); 
+        consoleUI.println("Current Balance:  $" + currentAccount.getBalance()); 
 
         String gameSelectionInput = consoleUI.getGameSelectionInput().trim().toUpperCase();
 
@@ -102,8 +110,8 @@ public class Casino implements Runnable {
         String accountName = consoleUI.getAccountName();
         String accountPassword = consoleUI.getAccountPassword();
 
-        CasinoAccount newAccount = casinoAccountManager.createAccount(accountName, accountPassword);
-        casinoAccountManager.registerAccount(newAccount);
+        currentAccount = casinoAccountManager.createAccount(accountName, accountPassword);
+        casinoAccountManager.registerAccount(currentAccount);
 
         consoleUI.println("Account created successfully!"); 
     }

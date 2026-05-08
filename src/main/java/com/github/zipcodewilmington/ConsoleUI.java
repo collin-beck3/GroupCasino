@@ -8,8 +8,8 @@ public class ConsoleUI {
 
     public String getArcadeDashboardInput() {
         return console.getStringInput(new StringBuilder()
-                .append("Welcome to the GroupCasino Dashboard!")
-                .append("\nFrom here, you can select any of the following options:")
+                .append("\n Welcome to the GroupCasino Dashboard!")
+                .append("\n From here, you can select any of the following options:")
                 .append("\n\t[ create-account ], [ select-game ], [ logout ]")
                 .toString());
     }
