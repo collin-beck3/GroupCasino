@@ -1,0 +1,52 @@
+[
+  {
+    "text": "What is the chemical symbol for water?",
+    "choices": ["H2O", "CO2", "O2", "NaCl"],
+    "correctAnswer": 1
+  },
+  {
+    "text": "Which planet is known as the Red Planet?",
+    "choices": ["Venus", "Mars", "Jupiter", "Saturn"],
+    "correctAnswer": 2
+  },
+  {
+    "text": "What is the powerhouse of the cell?",
+    "choices": ["Nucleus", "Ribosome", "Mitochondria", "Endoplasmic Reticulum"],
+    "correctAnswer": 3
+  },
+  {
+    "text": "What is the speed of light in a vacuum?",
+    "choices": ["300,000,000 m/s", "150,000,000 m/s", "299,792,458 m/s", "200,000,000 m/s"],
+    "correctAnswer": 3
+  },
+  {
+    "text": "Which element has the atomic number 1?",
+    "choices": ["Helium", "Oxygen", "Carbon", "Hydrogen"],
+    "correctAnswer": 4
+  },
+  {
+    "text": "What is the process by which plants make their own food?",
+    "choices": ["Respiration", "Photosynthesis", "Transpiration", "Osmosis"],
+    "correctAnswer": 2
+  },
+  {
+    "text": "Which force keeps planets in orbit around the sun?",
+    "choices": ["Magnetism", "Electricity", "Nuclear force", "Gravity"],
+    "correctAnswer": 4
+  },
+  {
+    "text": "What is the largest organ in the human body?",
+    "choices": ["Liver", "Heart", "Brain", "Skin"],
+    "correctAnswer": 4
+  },
+  {
+    "text": "Which scientist developed the theory of relativity?",
+    "choices": ["Isaac Newton", "Galileo Galilei", "Stephen Hawking", "Albert Einstein"],
+    "correctAnswer": 4
+  },
+  {
+    "text": "What is the boiling point of water at sea level?",
+    "choices": ["0°C", "50°C", "200°C", "100°C"],
+    "correctAnswer": 4
+  }
+]

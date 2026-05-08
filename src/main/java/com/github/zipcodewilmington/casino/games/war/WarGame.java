@@ -3,6 +3,7 @@ package com.github.zipcodewilmington.casino.games.war;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.github.zipcodewilmington.casino.CasinoAccount;
 import com.github.zipcodewilmington.casino.GameInterface;
 import com.github.zipcodewilmington.casino.PlayerInterface;
 import com.github.zipcodewilmington.casino.shared.Card;
@@ -19,8 +20,17 @@ import com.github.zipcodewilmington.utils.IOConsole;
 public class WarGame implements GameInterface {
 
     private PlayerInterface player;
-    private Deck deck = new Deck();
-    private IOConsole console = new IOConsole(AnsiColor.PURPLE);
+    private Deck deck;
+    private IOConsole console;
+
+    public WarGame() {
+        this(new IOConsole(AnsiColor.PURPLE), new Deck());
+    }
+
+    public WarGame(IOConsole console, Deck deck) {
+        this.console = console;
+        this.deck = deck;
+    }
 
     @Override
     public void add(PlayerInterface newPlayer) {
@@ -51,43 +61,81 @@ public class WarGame implements GameInterface {
 
         boolean keepPlaying = true;
         while (keepPlaying) {
-            // Refill and reshuffle before each round so we never run out of cards.
             deck.reset();
             deck.shuffle();
-
             playOneRound();
-
-            String answer = console.getStringInput("Play again? (yes/no)");
-            if (answer.equalsIgnoreCase("yes") || answer.equalsIgnoreCase("y")) {
-                keepPlaying = true;
-            } else {
-                keepPlaying = false;
-            }
+            keepPlaying = askYesNo("Play again? (yes/no)");
         }
         console.println("Thanks for playing!");
     }
 
-    private void playOneRound() {
-        long bet = console.getLongInput("How much do you want to bet?");
+    public boolean askYesNo(String prompt) {
+        String answer = console.getStringInput(prompt);
+        return answer.equalsIgnoreCase("yes") || answer.equalsIgnoreCase("y");
+    }
 
-        // Each side draws one card.
+    public long promptForBet(long maxBet) {
+        while (true) {
+            long bet = console.getLongInput("How much do you want to bet?");
+            if (bet <= 0) {
+                console.println("Bet must be greater than 0.");
+                continue;
+            }
+            if (bet > maxBet) {
+                console.println("Bet cannot exceed your balance of " + maxBet + ".");
+                continue;
+            }
+            return bet;
+        }
+    }
+
+    public void ensureDeckCanDeal(int cardsNeeded) {
+        if (deck.cardsRemaining() < cardsNeeded) {
+            deck.reset();
+            deck.shuffle();
+        }
+    }
+
+    public long readBalance(CasinoAccount account) {
+        // Stub: return a generous balance for development/testing
+        return 1000L;
+    }
+
+    public void settle(CasinoAccount account, long delta) {
+        if (delta > 0) {
+            account.deposit(delta);
+            console.println("You win " + delta + "!");
+        } else if (delta < 0) {
+            account.withdraw(-delta);
+            console.println("You lose " + (-delta) + ".");
+        }
+    }
+
+    private void playOneRound() {
+        long balance = readBalance(player.getCasinoAccount());
+        console.println("Your current balance: $" + balance);
+        
+        long bet = promptForBet(balance);
+        
+        if (!player.getCasinoAccount().withdraw(bet)) {
+            console.println("Insufficient funds for that bet.");
+            return;
+        }
+
+        ensureDeckCanDeal(2);
         Card playerCard = deck.draw();
         Card dealerCard = deck.draw();
         console.println("You drew: " + playerCard);
         console.println("Dealer drew: " + dealerCard);
 
-        // Pull out the rank values so the if/else reads obviously.
         int playerRank = playerCard.getRank().getValue();
         int dealerRank = dealerCard.getRank().getValue();
 
         if (playerRank > dealerRank) {
-            console.println("You win " + bet + "!");
-            player.getCasinoAccount().deposit(bet);
+            settle(player.getCasinoAccount(), bet);
         } else if (playerRank < dealerRank) {
-            console.println("Dealer wins. You lose " + bet + ".");
-            player.getCasinoAccount().withdraw(bet);
+            settle(player.getCasinoAccount(), -bet);
         } else {
-            // It's a tie — drop into the war loop.
             handleTie(bet);
         }
     }
@@ -103,16 +151,20 @@ public class WarGame implements GameInterface {
 
             if (answer.equalsIgnoreCase("surrender")) {
                 long loss = currentBet / 2;
-                console.println("You surrender. You lose " + loss + ".");
-                player.getCasinoAccount().withdraw(loss);
+                settle(player.getCasinoAccount(), -loss);
                 return;
             }
 
-            // Going to war: burn 6 cards (3 each side) and double the bet.
+            if (!player.getCasinoAccount().withdraw(currentBet)) {
+                console.println("Insufficient funds for war.");
+                return;
+            }
+            currentBet = currentBet * 2;
+
+            ensureDeckCanDeal(8);
             for (int i = 0; i < 6; i++) {
                 deck.draw();
             }
-            currentBet = currentBet * 2;
 
             Card playerCard = deck.draw();
             Card dealerCard = deck.draw();
@@ -123,15 +175,12 @@ public class WarGame implements GameInterface {
             int dealerRank = dealerCard.getRank().getValue();
 
             if (playerRank > dealerRank) {
-                console.println("You win " + currentBet + "!");
-                player.getCasinoAccount().deposit(currentBet);
+                settle(player.getCasinoAccount(), currentBet);
                 stillTied = false;
             } else if (playerRank < dealerRank) {
-                console.println("Dealer wins. You lose " + currentBet + ".");
-                player.getCasinoAccount().withdraw(currentBet);
+                settle(player.getCasinoAccount(), -currentBet);
                 stillTied = false;
             } else {
-                // Another tie — loop back with a doubled bet.
                 console.println("ANOTHER TIE! Stakes are escalating...");
             }
         }

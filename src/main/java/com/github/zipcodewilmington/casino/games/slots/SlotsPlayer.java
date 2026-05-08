@@ -21,7 +21,12 @@ public class SlotsPlayer implements PlayerInterface {
 
     @Override
     public void setCasinoAccount(CasinoAccount account) {
-        
+        this.casinoAccount = account;
+    }
+
+    @Override
+    public <SomeReturnType> SomeReturnType play() {
+        return null;
     }
 
     @Override

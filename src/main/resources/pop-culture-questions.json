@@ -1,0 +1,52 @@
+[
+  {
+    "text": "Which movie features the character Jack Sparrow?",
+    "choices": ["Pirates of the Caribbean", "Harry Potter", "Star Wars", "Lord of the Rings"],
+    "correctAnswer": 1
+  },
+  {
+    "text": "Who played the character of Harry Potter in the film series?",
+    "choices": ["Rupert Grint", "Daniel Radcliffe", "Emma Watson", "Tom Felton"],
+    "correctAnswer": 2
+  },
+  {
+    "text": "Which band released the album 'Abbey Road'?",
+    "choices": ["The Rolling Stones", "Led Zeppelin", "The Beatles", "Pink Floyd"],
+    "correctAnswer": 3
+  },
+  {
+    "text": "What is the name of the fictional continent in 'Game of Thrones'?",
+    "choices": ["Middle-earth", "Narnia", "Hogwarts", "Westeros"],
+    "correctAnswer": 4
+  },
+  {
+    "text": "Which actress starred as Katniss Everdeen in 'The Hunger Games'?",
+    "choices": ["Jennifer Lawrence", "Emma Stone", "Scarlett Johansson", "Angelina Jolie"],
+    "correctAnswer": 1
+  },
+  {
+    "text": "What is the highest-grossing film of all time (not adjusted for inflation)?",
+    "choices": ["Avatar", "Avengers: Endgame", "Titanic", "Star Wars: The Force Awakens"],
+    "correctAnswer": 2
+  },
+  {
+    "text": "Which TV show features the character Walter White?",
+    "choices": ["The Sopranos", "The Wire", "Mad Men", "Breaking Bad"],
+    "correctAnswer": 4
+  },
+  {
+    "text": "Who is known as the 'King of Pop'?",
+    "choices": ["Prince", "Michael Jackson", "Madonna", "Whitney Houston"],
+    "correctAnswer": 2
+  },
+  {
+    "text": "Which superhero is also known as the 'Man of Steel'?",
+    "choices": ["Batman", "Spider-Man", "Iron Man", "Superman"],
+    "correctAnswer": 4
+  },
+  {
+    "text": "What is the name of the wizarding school in Harry Potter?",
+    "choices": ["Beauxbatons", "Hogwarts", "Durmstrang", "Ilvermorny"],
+    "correctAnswer": 2
+  }
+]
