@@ -13,7 +13,7 @@ import com.github.zipcodewilmington.utils.IOConsole;
 
 public class TriviaGame implements GameInterface {
     private PlayerInterface player;
-    private IOConsole console = new IOConsole(AnsiColor.PURPLE);
+    private IOConsole console = new IOConsole(AnsiColor.YELLOW);
 
     private static final String QUESTION_FILE = "/trivia-questions.json";
     private static final List<TriviaQuestion> QUESTIONS = loadQuestions();

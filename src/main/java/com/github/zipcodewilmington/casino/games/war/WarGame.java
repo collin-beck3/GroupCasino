@@ -20,7 +20,7 @@ public class WarGame implements GameInterface {
 
     private PlayerInterface player;
     private Deck deck = new Deck();
-    private IOConsole console = new IOConsole(AnsiColor.PURPLE);
+    private IOConsole console = new IOConsole(AnsiColor.AUTO);
 
     @Override
     public void add(PlayerInterface newPlayer) {

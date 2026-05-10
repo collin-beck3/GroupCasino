@@ -71,38 +71,46 @@ public class Casino implements Runnable {
             consoleUI.println("No account found with that name and password. "); 
             return; */
         //}
+
+        int gameSelection;
+        boolean backToMenu = false; 
+
+        while (!backToMenu) {
         consoleUI.println("\n"); 
         consoleUI.println("Current Balance:  $" + currentAccount.getBalance()); 
 
-        String gameSelectionInput = consoleUI.getGameSelectionInput().trim().toUpperCase();
+        gameSelection = consoleUI.getGameSelectionInput(); 
 
-        switch (gameSelectionInput) {
-         case "SLOTS": 
+        switch (gameSelection) {
+         case 0: 
+            backToMenu = true;
+            consoleUI.println("Returning to main menu...");
+            break;
+         case 1: 
            play(new SlotsGame(), new SlotsPlayer(currentAccount));    
            break;                           
-         case "NUMBERGUESS":
+         case 2:
             play(new NumberGuessGame(), new NumberGuessPlayer(currentAccount)); 
             break;                 
-         case "WAR":
+         case 3:
             play(new WarGame(), new WarPlayer(currentAccount));
             break;
-         case "ROULETTE":
+         case 4:
             play(new RouletteGame(), new RoulettePlayer(currentAccount));
             break;
-         case "DICE":
-         case "CRAPS":
+         case 5:
             play(new DiceGame(), new DicePlayer(currentAccount)); 
             break;
-         case "TRIVIA":
+         case 6:
             play(new TriviaGame(), new TriviaPlayer(currentAccount));
             break;
         default: 
-            consoleUI.println("[ " + gameSelectionInput + " ] is an invalid game selection.");
+            consoleUI.println("[ " + gameSelection + " ] is an invalid game selection.");
             //String errorMessage = "[ %s ] is an invalid game selection";
             //throw new RuntimeException(String.format(errorMessage, gameSelectionInput));
         }
-        
     }
+}
 
     private void createAccount() {
         consoleUI.println("Welcome to the account-creation screen.");
