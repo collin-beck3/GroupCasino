@@ -1,0 +1,52 @@
+[
+  {
+    "text": "What does 'CPU' stand for in computing?",
+    "choices": ["Central Processing Unit", "Computer Power Unit", "Central Program Unit", "Computer Processing Unit"],
+    "correctAnswer": 1
+  },
+  {
+    "text": "Which company developed the Windows operating system?",
+    "choices": ["Apple", "Microsoft", "Google", "IBM"],
+    "correctAnswer": 2
+  },
+  {
+    "text": "What is the name of the first programmable computer?",
+    "choices": ["UNIVAC", "Colossus", "ENIAC", "Harvard Mark I"],
+    "correctAnswer": 3
+  },
+  {
+    "text": "Which programming language is known for its use in web development and has a coffee-related name?",
+    "choices": ["Java", "Python", "C++", "JavaScript"],
+    "correctAnswer": 4
+  },
+  {
+    "text": "What does 'HTTP' stand for?",
+    "choices": ["HyperText Transfer Protocol", "High Tech Transfer Protocol", "HyperText Transmission Protocol", "High Transfer Text Protocol"],
+    "correctAnswer": 1
+  },
+  {
+    "text": "Which device is used to connect multiple computers in a network?",
+    "choices": ["Monitor", "Router", "Keyboard", "Printer"],
+    "correctAnswer": 2
+  },
+  {
+    "text": "What is the primary function of RAM in a computer?",
+    "choices": ["Permanent storage", "Processing data", "Temporary storage", "Displaying output"],
+    "correctAnswer": 3
+  },
+  {
+    "text": "Which company is the creator of the iPhone?",
+    "choices": ["Samsung", "Google", "Microsoft", "Apple"],
+    "correctAnswer": 4
+  },
+  {
+    "text": "What does 'AI' stand for in technology?",
+    "choices": ["Automated Interface", "Artificial Intelligence", "Advanced Integration", "Active Internet"],
+    "correctAnswer": 2
+  },
+  {
+    "text": "Which social media platform was founded by Mark Zuckerberg?",
+    "choices": ["Twitter", "Instagram", "LinkedIn", "Facebook"],
+    "correctAnswer": 4
+  }
+]
