@@ -1,8 +1,14 @@
 package com.github.zipcodewilmington.casino.games.roulette;
 
+import java.util.ArrayDeque;
+import java.util.Comparator;
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
 import com.github.zipcodewilmington.casino.CasinoAccount;
 import com.github.zipcodewilmington.casino.PlayerInterface;
-import java.util.*;
 
 /**
  * RoulettePlayer — implements PlayerInterface.

@@ -37,7 +37,7 @@ public class WarGame implements GameInterface {
     private IOConsole console;
 
     public WarGame() {
-        this(new IOConsole(AnsiColor.PURPLE), new Deck());
+        this(new IOConsole(AnsiColor.YELLOW), new Deck());
     }
 
     public WarGame(IOConsole console, Deck deck) {
@@ -250,7 +250,7 @@ public class WarGame implements GameInterface {
 
     /** Stub: returns a generous balance for development/testing. */
     public long readBalance(CasinoAccount account) {
-        return 1000L;
+        return (long) account.getBalance();
     }
 
     /**

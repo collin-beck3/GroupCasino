@@ -16,7 +16,7 @@ import com.github.zipcodewilmington.utils.IOConsole;
 public class TriviaGame implements GameInterface {
     private PlayerInterface player;
     private List<PlayerInterface> players = new ArrayList<>();
-    private IOConsole console = new IOConsole(AnsiColor.PURPLE);
+    private IOConsole console = new IOConsole(AnsiColor.YELLOW);
 
     @Override
     public void add(PlayerInterface newPlayer) {
